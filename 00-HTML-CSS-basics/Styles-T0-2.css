@@ -1,0 +1,103 @@
+html {
+  font-family: sans-serif; 
+  box-sizing: border-box;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin:0px;
+
+}
+
+.header{
+  font-size: 46px;
+  height:100px;
+  width:100%;
+  text-align: center;
+  clear:both;
+  border: 2px solid white;
+}
+.footer{
+  font-size: 10px;
+  height:100px;
+  width:100%;
+  clear:both;
+  text-align: center;
+  border: 2px solid white;
+}
+
+.content{
+  font-size: 14px;
+  height:200px;
+}
+
+.navigation{
+  font-size:12px;
+  height:200px;
+  color: white;
+  border: 2px solid white;
+}
+
+.sidebar{
+  font-size:10px;
+  height:200px;
+  border: 2px solid white;
+}
+
+a{
+  color:white;
+}
+
+#header{
+  height: 50px;
+  width:100%;
+  border: 2px solid white;
+  clear:both;
+}
+
+#footer{
+  height: 50px;
+  border: 2px solid white;
+  width:100%;
+  clear:both;
+}
+
+section article{
+  height: 100px;
+  border: 2px solid white;
+  width:100%;  
+}
+
+section{
+  float: left;
+  width:50%;
+}
+
+nav{
+  float:left;
+  width:25%;
+}
+
+aside{
+  float: right;
+  width: 25%;  
+}
+
+*[class$="r"]{
+  background-color:#FF00FF !important;
+}
+
+*[class*="a"]:not([class$="r"]){
+  background-color:blue !important;
+}
+
+/*
+7
+
+[class="oh-no-inline-styles"] {
+  background-color:green !important;
+}
+*/
