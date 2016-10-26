@@ -1,8 +1,18 @@
-.section{
+section{
 	text-align:center;
 }
 
-#oculto{
-	visibility:hidden;
+button{
+	margin: 0 auto;
 }
 
+#oculto{
+	display:none;
+}
+
+#button{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
