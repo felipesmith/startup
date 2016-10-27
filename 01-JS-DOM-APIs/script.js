@@ -1,7 +1,12 @@
+var mat = [[1,2,3],[4,5,6],[7,8,9]];
+
+
 $(document).ready(function() {
         $("#oculto").fadeIn();
         $("#btn").click(joke);
-        $("#btn").click(averiguar);
+        averiguar();
+        $("#btnSearch").click(averiguar2)
+        addToDOM(mat, document.getElementById('tabla'));
     });
 
 function joke(){
@@ -17,14 +22,45 @@ function joke(){
 function averiguar(){
 	var url = "https://api.github.com/search/repositories";
 	$.getJSON(url, {q:'JavaScript'}, function(data){
-		console.log(data.items.forEach(function(el){
-			console.log(el.full_name);
-		}));
+		data.items.forEach(function(el){
+			$('<li>'+el.full_name+"</li>").appendTo('ul.List')
+		});
 	})
 }
 
-/*$('#btn').click(function(){
-    if(text.length){
-        $('<li />', {html: text}).appendTo('ul.List')
-    }
-});*/
+function averiguar2(){
+	var url = "https://api.github.com/search/repositories";
+	var input = $('#repo').val();
+	$('ul.List').empty();
+	$.getJSON(url, {q: input}, function(data){
+		data.items.forEach(function(el){
+			$('<li>'+el.full_name+"</li>").appendTo('ul.List')
+		});
+	})
+}
+
+
+
+function addToDOM (mat, where) { 
+  var newTable = document.createElement("table"); 
+  
+  mat.forEach(function(fila, index, array){
+
+  var newFila = document.createElement("tr");
+  	fila.forEach(function(el){
+  		if(index==0){
+  		var newElemento = document.createElement("th");
+  		var newContent = document.createTextNode(el);
+  		newFila.appendChild(newContent);
+  	}
+  	else{
+  		var newElemento = document.createElement("td");
+  		var newContent = document.createTextNode(el);
+  		newFila.appendChild(newContent);
+  	}
+  	})	
+	newTable.appendChild(newFila); 
+  } )
+
+  where.appendChild(newTable);
+}
