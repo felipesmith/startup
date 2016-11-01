@@ -44,19 +44,23 @@ function averiguar2(){
 function addToDOM (mat, where) { 
   var newTable = document.createElement("table"); 
   
-  mat.forEach(function(fila, index, array){
-
+  mat.forEach(function(fila, index){
   var newFila = document.createElement("tr");
   	fila.forEach(function(el){
+  		
   		if(index==0){
+  			console.log(index);
   		var newElemento = document.createElement("th");
   		var newContent = document.createTextNode(el);
-  		newFila.appendChild(newContent);
+  		newElemento.appendChild(newContent)
+  		newFila.appendChild(newElemento);
+  		
   	}
   	else{
   		var newElemento = document.createElement("td");
   		var newContent = document.createTextNode(el);
-  		newFila.appendChild(newContent);
+  		newElemento.appendChild(newContent)
+  		newFila.appendChild(newElemento);
   	}
   	})	
 	newTable.appendChild(newFila); 
